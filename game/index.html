@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solis Heat — an open-world crime game in Puerto Solis</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./styles/hud-and-menus.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three.module.min.js"
+  }
+}
+</script>
+</head>
+<body>
+<canvas id="game-canvas" aria-label="Solis Heat: explore Puerto Solis on foot and by car"></canvas>
+
+<div id="hud-root">
+  <div id="hud-mission-panel" class="hud-card">
+    <div id="hud-mission-kicker">ACTIVE MISSION</div>
+    <div id="hud-mission-title">Sunset Pickup</div>
+    <div id="hud-mission-objective">Get into the coral coupe by the promenade.</div>
+  </div>
+
+  <div id="hud-status-cluster" class="hud-card">
+    <div id="hud-wanted-stars" aria-label="Wanted level"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+    <div id="hud-cash-display">$250</div>
+    <div id="hud-weapon-hud"><span id="hud-weapon-name">UNARMED</span><span id="hud-weapon-ammo"></span></div>
+    <div id="hud-health-track"><div id="hud-health-bar"></div></div>
+    <div id="hud-armor-track"><div id="hud-armor-bar"></div></div>
+  </div>
+
+  <div id="hud-minimap-wrap">
+    <canvas id="hud-minimap-canvas" width="220" height="220"></canvas>
+    <div id="hud-district-label">PLAYA CORAL</div>
+  </div>
+
+  <div id="hud-speedometer" class="hud-card">
+    <div id="hud-speed-value">0</div>
+    <div id="hud-speed-unit">KM/H</div>
+    <div id="hud-vehicle-name">ON FOOT</div>
+    <div id="hud-drive-hints">[SPACE] Drift · [F] Exit</div>
+  </div>
+
+  <div id="hud-interact-prompt"></div>
+  <div id="hud-dialogue-bar"><span id="hud-dialogue-speaker">DANTE</span><span id="hud-dialogue-text"></span></div>
+  <div id="hud-centre-toast"></div>
+  <div id="hud-crosshair"><span id="hud-crosshair-dot"></span></div>
+  <div id="hud-damage-vignette"></div>
+</div>
+
+<div id="start-and-save-modal">
+  <div id="menu-panel">
+    <div id="menu-logo-kicker">PUERTO SOLIS · COSTA DORADA</div>
+    <h1 id="menu-logo">SOLIS <span>HEAT</span></h1>
+    <p id="menu-tagline">Valeria “Val” Mendoza owes the port syndicate one last night of work. Steal cars, outrun the SPD Task Force, run Dante’s jobs — and watch the sun go down on Los Escorpiones.</p>
+    <div id="menu-buttons">
+      <button id="menu-btn-play" class="menu-button primary" type="button">▶ Play / Resume</button>
+      <button id="menu-btn-save" class="menu-button" type="button">Save Game</button>
+      <button id="menu-btn-load" class="menu-button" type="button">Load Save</button>
+      <button id="menu-btn-new" class="menu-button" type="button">New Campaign</button>
+    </div>
+    <div id="menu-save-status">Save slot: empty</div>
+    <div id="menu-controls">
+      <span><b>WASD</b> Move / Drive</span><span><b>Mouse</b> Camera · <b>Click</b> Shoot</span><span><b>Shift</b> Sprint</span>
+      <span><b>F</b> Enter / Hijack / Exit</span><span><b>Space</b> Handbrake drift</span><span><b>1–4</b> Weapons</span>
+      <span><b>E</b> Customs repaint</span><span><b>R</b> Radio</span><span><b>P / Esc</b> Menu</span>
+    </div>
+  </div>
+</div>
+
+<p id="status" role="status" aria-live="polite"></p>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
